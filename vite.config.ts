@@ -1,8 +1,9 @@
-import path from "node:path";
-import type { UserConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
+import path from "path"
+import { defineConfig } from "vite"
+import tsconfigPaths from "vite-tsconfig-paths"
 
-const config: UserConfig = {
+export default defineConfig({
+  publicDir: "public",
   plugins: [
     tsconfigPaths({
       root: path.resolve(__dirname, "."),
@@ -10,8 +11,6 @@ const config: UserConfig = {
     }),
   ],
   server: {
-    port: 1234,
+    port: 2000,
   },
-};
-
-export default config;
+})

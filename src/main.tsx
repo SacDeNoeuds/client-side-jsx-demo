@@ -1,22 +1,16 @@
-import "./styles.css";
-import { Counter } from "./Counter";
-import { HTMLElements } from "proact/jsx/types";
-
-declare global {
-  namespace JSX {
-    // type Element = Node;
-    interface CustomAttributes {}
-    interface IntrinsicElements extends HTMLElements {}
-  }
-}
+import { Signal } from "signal-polyfill"
+import { Counter } from "./Counter"
 
 function App() {
+  const count = new Signal.State(0)
   return (
     <div>
-      <Counter />
+      <Counter count={count} />
+      <br />
+      <div>Value: {count}</div>
     </div>
-  );
+  )
 }
 const element = document.getElementById("app")
-if (!element) throw new Error('no root element');
-element.replaceChildren(<App />);
+if (!element) throw new Error("no root element")
+element.replaceChildren(<App />)

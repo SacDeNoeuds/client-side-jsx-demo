@@ -1,5 +1,8 @@
 {
-  "include": ["./src", "./proact"],
+  "include": [
+    "./src",
+    "./library"
+  ],
   "compilerOptions": {
     "target": "ES2022",
     "module": "ES2022",
@@ -13,8 +16,9 @@
     "jsx": "react-jsx",
     "jsxImportSource": "proact/jsx",
     "paths": {
-      "proact": ["./proact/index"],
-      "proact/*": ["./proact/*"]
+      "proact/*": [
+        "./library/proact/*"
+      ]
     }
   }
 }
